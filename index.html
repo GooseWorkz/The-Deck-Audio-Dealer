@@ -1,10 +1,11 @@
+
 <!doctype html>
 <html class="no-js" lang="en">
 
 <head>
   <meta charset="utf-8">
-  <title>Responsive Layouts</title>
-  <meta name="description" content="This site will serve as the hub for many sub responsive layouts">
+  <title>The Deck Audio Player</title>
+  <meta name="description" content="A card player for The Deck posdast">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <meta property="og:title" content="">
@@ -13,7 +14,7 @@
   <meta property="og:image" content="">
 
   <link rel="manifest" href="site.webmanifest">
-  <link rel="icon" href="icon.png">
+  <link rel="icon" href="img/back.png">
   <!-- Place favicon.ico in the root directory -->
 
   <link rel="stylesheet" href="css/normalize.css">
@@ -23,8 +24,49 @@
 </head>
 
 <body>
-  <!-- Place your site's HTML here -->
-  <p>This text will display on your site! Jan 19</p>
+  <main class="table">
+    <div class="slot" id="slot"></div>
+
+    <button type="button" id="deck" class="deck" aria-label="Deal a card from the deck">
+      <img src="img/back.png" alt="Card deck" />
+      <img src="img/back.png" alt="" aria-hidden="true" />
+      <img src="img/back.png" alt="" aria-hidden="true" />
+    </button>
+  </main>
+  
+  <section class="podcast-player" id="podcastPlayer" aria-label="Spotify podcast player" hidden>
+    <iframe
+      id="spotifyPlayer"
+      title="Spotify podcast episode"
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+      loading="lazy">
+    </iframe>
+  </section>
+
+  <template id="cardTemplate">
+    <div class="deal-card" role="button" tabindex="0">
+      <div class="card-effect">
+        <div class="face front">
+          <img src="img/face.png" alt="">
+          <img class="card-portrait" alt="" hidden>
+          <div class="card-details" aria-hidden="true">
+            <div class="card-index card-index-top">
+              <span class="card-rank"></span>
+              <span class="card-suit"></span>
+            </div>
+            <div class="card-index card-index-bottom">
+              <span class="card-rank"></span>
+              <span class="card-suit"></span>
+            </div>
+          </div>
+          <span class="portrait-name portrait-name-top" aria-hidden="true"></span>
+          <span class="portrait-name portrait-name-bottom" aria-hidden="true"></span>
+        </div>
+        <div class="face back"><img src="img/back.png" alt="Card back"></div>
+      </div>
+    </div>
+  </template>
+
   <script src="js/main.js"></script>
 </body>
 
